@@ -1,0 +1,25 @@
+.btn{
+    display: block;
+    max-width: 280px;
+    width: 100%;
+    min-height: 52px;
+    margin-left: auto;
+    padding: 12px 0 11px;
+    line-height: 1.2;
+    border: none;
+    border-radius: 52px;
+    background: transparent;
+    color: var(--main-text-color);
+    border: 2px solid var(--main-text-color);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+
+    @include trs(0.4);
+
+    &:hover {
+        color: #FFFFFF;
+        background: var(--main-text-color);
+    }
+}
+

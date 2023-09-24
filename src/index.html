@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+@@include('components/page-blocks/_head/_head.html',{
+"lang":"ru",
+"title":"Title",
+"description":"description",
+"keywords":"keywords",
+"favicon":"img/favicons/favicon",
+})
+
+<body>
+	@@include('components/page-blocks/_header/_header.html')
+	<main class="main">
+		<section class="banner">
+			<div class="banner__slide banner-slide">
+				<picture class="banner-slide__picture banner-slide-picture">
+					<source srcset="./img/slide2.webp" type="image/webp">
+					<img src="./img/slide2.jpeg" alt="" class="banner-slide__img">
+				</picture>
+				<div class="banner-slide__wrapper banner-slide-wrapper">
+					<h2 class="banner__title banner-title">Установка систем отопления.</h2>
+					<p class="banner__text banner-text text-justify">Мы занимаемся установкой систем отопления высокого качества по Москве и Московсой Области.</p>
+					@@include('components/bem-blocks/button/button.html',{
+						"tag": "a",
+						"href": 'href="#"',
+						"class": "banner__link",
+						"text": "Подробнее"
+					})
+				</div>
+			</div>
+			<div class="banner__slide banner-slide">
+				<picture class="banner-slide__picture banner-slide-picture">
+					<source srcset="./img/slide3.webp" type="image/webp">
+					<img src="./img/slide3.jpg" alt="" class="banner-slide__img">
+				</picture>
+				<div class="banner-slide__wrapper banner-slide-wrapper">
+					<h2 class="banner__title banner-title">Установка систем водоснабжения.</h2>
+					<p class="banner__text banner-text text-justify">У нас обширный опыт в установке систем водоснаюжения, поможем с выбором оборудования под ваши нужды.</p>
+					@@include('components/bem-blocks/button/button.html',{
+					"tag": "a",
+					"href": 'href="#"',
+					"class": "banner__link",
+					"text": "Подробнее"
+					})
+				</div>
+			</div>
+			<div class="banner__slide banner-slide">
+				<picture class="banner-slide__picture banner-slide-picture">
+					<source srcset="./img/slide1.webp" type="image/webp">
+					<img src="./img/slide1.jpeg" alt="" class="banner-slide__img">
+				</picture>
+				<div class="banner-slide__wrapper banner-slide-wrapper">
+					<h2 class="banner__title banner-title">Сделайте заказ сейчас!</h2>
+					<p class="banner__text banner-text text-justify">
+						Вы можете сделать заказ <a class="banner-text__link banner-text-link colored-text" href="tel:+79998887766">позвонив</a> нам или <a class="banner-text__link banner-text-link colored-text" href="mailto:el.pochta@mail.ru">напишите на нашу почту</a> и мы свяжемся с вами!
+					</p>
+				</div>
+			</div>
+		</section>
+		<section class="services">
+			<h1 class="services__title">Услуги</h1>
+			<div class="services__boxes services-boxes flex">
+				<div class="services-boxes__item services-boxes-item">
+					<a href="#" class="services-boxes-item__link" style="background-image: url('./img/slide1.webp')">
+					</a>
+					<a href="#" class="services-boxes-item__wrapper flex --just-center --align-end">
+						Водоснабжение
+					</a>
+				</div>
+				<div class="services-boxes__item services-boxes-item">
+					<a href="#" class="services-boxes-item__link" style="background-image: url('./img/slide2.webp')">
+					</a>
+					<a href="#" class="services-boxes-item__wrapper flex --just-center --align-end">
+						Отопление
+					</a>
+				</div>
+				<div class="services-boxes__item services-boxes-item">
+					<a href="#" class="services-boxes-item__link" style="background-image: url('./img/slide3.webp')">
+					</a>
+					<a href="#" class="services-boxes-item__wrapper flex --just-center --align-end">
+						Заключение договоров
+					</a>
+				</div>
+				<div class="services-boxes__item services-boxes-item">
+					<a href="#" class="services-boxes-item__link" style="background-image: url('./img/slide4.webp')">
+					</a>
+					<a href="#" class="services-boxes-item__wrapper flex --just-center --align-end">
+						Установка котельного оборудования
+					</a>
+				</div>
+				<div class="services-boxes__item services-boxes-item">
+					<a href="#" class="services-boxes-item__link" style="background-image: url('./img/slide5.webp')">
+					</a>
+					<a href="#" class="services-boxes-item__wrapper flex --just-center --align-end">
+						Водоснабжение
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+	@@include('components/page-blocks/_footer/_footer.html')
+	@@include('components/page-blocks/_scripts/_scripts.html')
+</body>
+
+</html>
