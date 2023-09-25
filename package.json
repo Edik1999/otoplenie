@@ -1,7 +1,7 @@
 {
-  "name": "melbet landing",
+  "name": "site",
   "version": "1",
-  "description": "promo landing",
+  "description": "site for improve sells",
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",

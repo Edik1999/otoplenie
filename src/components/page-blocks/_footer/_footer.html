@@ -1,27 +1,37 @@
 <footer class="footer">
-    <ul class="footer__list footer-list flex --just-space --align-center">
-        <li class="footer-list__item footer-list-item">
-            <a href="https://melbet.com/" class="footer-list-item__logo-link">
-                @@include('../../bem-blocks/_sprite/_sprite.html',{
-                    "class": "footer-list-item__logo",
-                    "id": "logo"
-                })
-            </a>
-        </li>
-        <li class="footer-list__item footer-list-item">
-            <a class="footer-list-item__link footer-list-item-link" href="https://melbet.com/">melbet.com</a>
-        </li>
-        <li class="footer-list__item footer-list-item">
-            <a class="footer-list-item__link footer-list-item-link colored-text" href="#teamCash">join us</a>
-        </li>
-        <li class="footer-list__item footer-list-item">
-            <a class="footer-list-item__link" href="https://t.me/Latam_TeamCash">
-                <picture class="footer-list-item__img">
-                    <source srcset="../../../img/telegram.webp" type="image/webp">
-                    <source srcset="../../../img/telegram.png" type="image/png">
-                    <img src="../../../img/telegram.png" alt="Telegram ico">
+    <div class="footer__body flex --just-space">
+        <div class="footer__logo footer-logo">
+            <a href="#" class="footer-logo__link">
+                <picture class="footer-logo__picture footer-logo-picture flex">
+                    <source srcset="./img/logo.webp" type="image/webp">
+                    <img src="./img/logo.jpeg" alt="" class="footer-logo__img">
                 </picture>
             </a>
-        </li>
-    </ul>
+        </div>
+        <div class="footer__right-side flex --just-space">
+            <ul class="footer__links footer-links">
+                <li class="footer-links__item footer-links-item footer-links-item--title">
+                    <span class="footer-links-item__title">Услуги</span>
+                </li>
+                <li class="footer-links__item footer-links-item">
+                    <a href="#" class="footer-links-item__link">Отопление</a>
+                </li>
+                <li class="footer-links__item footer-links-item">
+                    <a href="#" class="footer-links-item__link">Водоснабжение</a>
+                </li>
+                <li class="footer-links__item footer-links-item">
+                    <a href="#" class="footer-links-item__link">Установка оборудования</a>
+                </li>
+                <li class="footer-links__item footer-links-item">
+                    <a href="#" class="footer-links-item__link">Все услуги</a>
+                </li>
+            </ul>
+            <div class="footer__contacts footer-contacts flex --dir-col">
+                <a class="footer-contacts__item footer-contacts-item--link" href="tel:+79998887766">+7 999-888-77-66</a>
+                <a class="footer-contacts__item footer-contacts-item--link" href="mailto:el.pochta@mail.ru">el.pochta@mail.ru</a>
+                <br>
+                <span class="footer-contacts__item footer-contacts-item">Московская область,<br>Апрелевка</span>
+            </div>
+        </div>
+    </div>
 </footer>

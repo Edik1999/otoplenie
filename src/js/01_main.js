@@ -15,6 +15,53 @@ $(document).ready(function(){
         centerPadding: 0,
         pauseOnHover:false,
     });
+
+    initMap();
+
+    async function initMap() {
+        // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
+        await ymaps3.ready;
+
+        const {
+            YMap,
+            YMapDefaultSchemeLayer,
+            YMapControls,
+            YMapDefaultFeaturesLayer
+        } = ymaps3;
+
+        const {YMapZoomControl, YMapGeolocationControl} = await ymaps3.import('@yandex/ymaps3-controls@0.0.1');
+        const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-markers@0.0.1');
+
+        // Иницилиазируем карту
+        const map = new YMap(
+            // Передаём ссылку на HTMLElement контейнера
+            document.querySelector('.contacts__map'),
+
+            // Передаём параметры инициализации карты
+            {
+                location: {
+                    // Координаты центра карты
+                    center: [37.073383, 55.544999],
+
+                    // Уровень масштабирования
+                    zoom: 16
+                }
+            }
+        );
+
+        const defaultMarker = new YMapDefaultMarker({
+            coordinates: [37.073383, 55.544999],
+            title: 'Наш офис',
+            color: '#3576e7'
+        });
+
+        // Добавляем слой для отображения схематической карты
+        map.addChild(new YMapDefaultSchemeLayer());
+        map.addChild(new YMapDefaultFeaturesLayer({id: 'features'}));
+        map.addChild(new YMapControls({position: 'right'}).addChild(new YMapZoomControl({})));
+        map.addChild(new YMapControls({position: 'left'}).addChild(new YMapGeolocationControl({})));
+        map.addChild(defaultMarker);
+    }
 });
 
 // slick slider

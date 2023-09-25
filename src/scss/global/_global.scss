@@ -118,6 +118,19 @@ body {
 	}
 }
 
+section {
+	padding-bottom: 80px;
+}
+
+.title {
+	text-align: center;
+	font-size: 3rem;
+	line-height: 3.2rem;
+	text-shadow: 10px 3px 25px var(--main-text-color);
+	font-weight: 900;
+	margin: 0 auto 50px;
+}
+
 .big-text {
 	font-size: 35px;
 	line-height: 42px;
