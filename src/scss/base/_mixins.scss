@@ -52,9 +52,42 @@
 	transition: all #{$tr}s;
 }
 
-@mixin container($max-width:"120rem", $padding-right: "2rem", $padding-left:"2rem") {
+@mixin container($max-width:"120rem", $padding-right: "2rem", $padding-bottom:"2rem", $padding-left:"2rem") {
 	width: 100%;
 	max-width: #{$max-width};
-	padding: 0 #{$padding-right} 0 #{$padding-left};
+	padding: 0 #{$padding-right} #{$padding-bottom} #{$padding-left};
 	margin: 0 auto;
+}
+
+//media mixins
+@mixin small-phone {
+	@media (max-width: 399px) { @content; }
+}
+@mixin phone {
+	@media (max-width: 599px) { @content; }
+}
+@mixin big-phone {
+	@media (max-width: 767px) { @content; }
+}
+@mixin tablet-portrait {
+	@media (max-width: 899px) { @content; }
+}
+@mixin laptop {
+	@media (max-width: 1023px) { @content; }
+}
+@mixin tablet-landscape {
+	@media (max-width: 1199px) { @content; }
+}
+@mixin small-desktop {
+	@media (max-width: 1399px) { @content; }
+}
+@mixin desktop {
+	@media (max-width: 1799px) { @content; }
+}
+@mixin big-desktop {
+	@media (min-width: 1800px) { @content; }
+}
+
+@mixin only-desktop {
+	@media (min-width: 1024px) { @content; }
 }

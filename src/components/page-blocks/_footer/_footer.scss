@@ -1,13 +1,7 @@
 .footer{
-  padding-top: 50px;
-  padding-bottom: 50px;
-  background: hsl(0, 0%, 15%);
-
-  &__body {
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 auto;
-  }
+  padding-top: calc(var(--gutter) * 5);
+  padding-bottom: calc(var(--gutter) * 5);
+  background: var(--footer-bg);
 
   &__logo {
     max-width: 160px;
@@ -16,7 +10,7 @@
   &__links {
     padding-left: 0;
     list-style: none;
-    margin-right: 120px;
+    margin-right: calc(var(--gutter) * 12);
   }
 
   &__contacts {
@@ -29,34 +23,34 @@
 
   &--title {
     font-size: 18px;
-    color: #fff;
+    color: var(--white);
   }
 
   &__link {
-    color: hsl(0, 0%, 65%);
+    color: var(--light-gray);
     text-decoration: none;
-    @include trs();
+    @include trs;
 
     &:hover {
-      color: hsl(0, 0%, 100%);
+      color: var(--white);
     }
   }
 }
 
 .footer-contacts {
   &__item {
-    color: #fff;
+    color: var(--white);
   }
 }
 
 .footer-contacts-item{
   &--link {
-    color: hsl(0, 0%, 65%);
+    color: var(--light-gray);
     text-decoration: none;
-    @include trs();
+    @include trs;
 
     &:hover {
-      color: hsl(0, 0%, 100%);
+      color: var(--white);
     }
   }
 }

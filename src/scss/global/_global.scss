@@ -7,12 +7,23 @@
 }
 
 :root{
-	--bg-color:  hsl(0, 0%, 10%);
-	--main-text-color: hsl(217.99deg 78.66% 55.61%);
-	--main-text-color-hovered: hsl(217.99deg 78.66% 40.61%);
-	--bet-color: #FFBC00;
-	--title-shadow-color: #FFB94E;
-	--number-color: #EFB000;
+	--bg:  hsl(0, 0%, 10%);
+	--footer-bg: hsl(0, 0%, 15%);
+	--gray: hsl(0, 0%, 50%);
+	--light-gray: hsl(0, 0%, 65%);
+	--text-color: hsl(0, 0%, 85%);
+	--white: hsl(0, 0%, 100%);
+
+	--accent: hsl(218, 79%, 55%);
+	--accent-darken: hsl(218, 79%, 30%);
+
+	--dark-transparent: hsla(0, 0%, 0%, 0.5);
+	--shadow: hsla(0, 0%, 0%, 0.2);
+	--header-bg: hsla(0, 0%, 0%, 0.15);
+
+
+	--gutter: 10px;
+	--section-padding: 80px;
 }
 
 .flex {
@@ -52,33 +63,21 @@
 html {
 	font-size: 18px;
 
-	//@media (max-width: 1439px) {
-    //    font-size: 26px;
-	//}
-	//
-	//@media (max-width: 1200px) {
-	//	font-size: 24px;
-	//}
-	//
-	//@media (max-width: 1023px) {
-	//	font-size: 22px;
-	//}
-	//
-	//@media (max-width: 991px) {
-	//	font-size: 20px;
-	//}
-	//
-	//@media (max-width: 680px) {
-	//	font-size: 18px;
-	//}
-	//
-	//@media (max-width: 500px) {
-	//	font-size: 16px;
-	//}
-	//
-	//@media (max-width: 420px) {
-	//	font-size: 14px;
-	//}
+	@include desktop {
+		font-size: 17px;
+	}
+
+	@include tablet-landscape {
+		font-size: 16px;
+	}
+
+	@include tablet-portrait {
+		font-size: 15px;
+	}
+
+	@include small-phone {
+		font-size: 14px;
+	}
 }
 
 html,
@@ -89,86 +88,22 @@ body {
 
 body {
 	font-size: 1rem;
-	line-height: 37.3px;
-	color: hsla(0, 0%, 85%, 1);
-	background-color: var(--bg-color);
-
-	@media (max-width: 1439px) {
-        line-height: 38px;
-    }
-
-	@media (max-width: 1023px) {
-		line-height: 32px;
-	}
-
-	@media (max-width: 991px) {
-		line-height: 26px;
-	}
-
-	@media (max-width: 680px) {
-		line-height: 24px;
-	}
-
-	@media (max-width: 500px) {
-		line-height: 22px;
-	}
-
-	@media (max-width: 420px) {
-		line-height: 20px;
-	}
+	line-height: 2rem;
+	color: var(--text-color);
+	background-color: var(--bg);
 }
 
 section {
-	padding-bottom: 80px;
+	padding-bottom: var(--section-padding);
 }
 
 .title {
 	text-align: center;
 	font-size: 3rem;
 	line-height: 3.2rem;
-	text-shadow: 10px 3px 25px var(--main-text-color);
+	text-shadow: 10px 3px 25px var(--accent);
 	font-weight: 900;
-	margin: 0 auto 50px;
-}
-
-.big-text {
-	font-size: 35px;
-	line-height: 42px;
-
-	@media (max-width: 1439px) {
-		font-size: 34px;
-		line-height: 42px;
-	}
-
-	@media (max-width: 1200px) {
-		font-size: 32px;
-		line-height: 40px;
-	}
-
-	@media (max-width: 1023px) {
-		font-size: 30px;
-		line-height: 38px;
-	}
-
-	@media (max-width: 991px) {
-		font-size: 28px;
-		line-height: 36px;
-	}
-
-	@media (max-width: 680px) {
-		font-size: 26px;
-		line-height: 34px;
-	}
-
-	@media (max-width: 500px) {
-		font-size: 24px;
-		line-height: 32px;
-	}
-
-	@media (max-width: 420px) {
-		font-size: 22px;
-		line-height: 30px;
-	}
+	margin: 0 auto calc(var(--gutter) * 5);
 }
 
 img {
@@ -176,36 +111,65 @@ img {
 }
 
 .container {
-	@include container(1170px, 0)
+	&--fluid {
+		@include container(100%, 0, 0, 0);
+	}
+
+	@include big-desktop {
+		@include container(1440px, 0, 0, 0);
+	}
+
+	@include desktop {
+		@include container(1260px, 0, 0, 0);
+	}
+
+	@include small-desktop {
+		@include container(1140px, 0, 0, 0);
+	}
+
+	@include tablet-landscape {
+		@include container(960px, 0, 0, 0);
+	}
+
+	@include laptop {
+		@include container(840px, 0, 0, 0);
+	}
+
+	@include tablet-portrait {
+		@include container(740px, 0, 0, 0);
+	}
+
+	@include big-phone {
+		@include container(560px, 0, 0, 0);
+	}
+
+	@include phone {
+		@include container(100%, calc(var(--gutter) * 3 ), 0, calc(var(--gutter) * 3 ));
+	}
+
+	@include small-phone {
+		@include container(100%, calc(var(--gutter) * 2 ), 0, calc(var(--gutter) * 2 ));
+	}
 }
 
 .colored-text {
-	color: var(--main-text-color);
+	color: var(--accent);
 
 	&:hover {
-		//color: var(--main-text-color-hovered);
 		animation: forwards textAnim 1.8s infinite linear;
 	}
 }
 
 @keyframes textAnim {
 	0% {
-		color: var(--main-text-color);
-		transform: scale(1);
+		color: var(--accent);
 	}
 	50% {
-		color: var(--main-text-color-hovered);
-		transform: scale(1.5);
+		color: var(--accent-darken);
 	}
 	100% {
-		color: var(--main-text-color);
-		transform: scale(1);
+		color: var(--accent);
 	}
-}
-
-.melbet-color {
-	color: var(--bet-color);
-	font-weight: inherit;
 }
 
 .text-justify {

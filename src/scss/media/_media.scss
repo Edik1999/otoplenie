@@ -27,16 +27,16 @@
 }
 
 @media (max-width: 1350px) {
-    .banner {
-        &__title, &__text {
-            text-align: center;
-            max-width: 100%;
-        }
-
-        &__text {
-            margin-top: 45px;
-        }
-    }
+    //.banner {
+    //    &__title, &__text {
+    //        text-align: center;
+    //        max-width: 100%;
+    //    }
+    //
+    //    &__text {
+    //        margin-top: 45px;
+    //    }
+    //}
 }
 
 @media (max-width: 1200px) {
@@ -44,35 +44,35 @@
 }
 
 @media (max-width: 1023px) {
-    .banner {
-        &__title {
-            font-size: 53px;
-            line-height: 56px;
-        }
-
-        &__text {
-            margin-top: 35px;
-        }
-    }
+    //.banner {
+    //    &__title {
+    //        font-size: 53px;
+    //        line-height: 56px;
+    //    }
+    //
+    //    &__text {
+    //        margin-top: 35px;
+    //    }
+    //}
 }
 
 @media (max-width: 991px) {
-    .main {
-        overflow: hidden;
-    }
+    //.main {
+    //    overflow: hidden;
+    //}
 }
 
 @media (max-width: 767px) { 
-    .banner {
-        &__title {
-            font-size: 43px;
-            line-height: 46px;
-        }
-
-        &__text {
-            margin-top: 30px;
-        }
-    }
+    //.banner {
+    //    &__title {
+    //        font-size: 43px;
+    //        line-height: 46px;
+    //    }
+    //
+    //    &__text {
+    //        margin-top: 30px;
+    //    }
+    //}
 }
 
 @media (max-width: 680px) {
@@ -80,16 +80,16 @@
 }
 
 @media (max-width: 575px) {
-    .banner {
-        &__title {
-            font-size: 34px;
-            line-height: 37px;
-        }
-
-        &__text {
-            margin-top: 20px;
-        }
-    }
+    //.banner {
+    //    &__title {
+    //        font-size: 34px;
+    //        line-height: 37px;
+    //    }
+    //
+    //    &__text {
+    //        margin-top: 20px;
+    //    }
+    //}
 }
 
 @media (max-width: 500px) {
@@ -97,12 +97,12 @@
 }
 
 @media (max-width: 420px) {
-    .banner {
-        &__title {
-            font-size: 26px;
-            line-height: 31px;
-        }
-    }
+    //.banner {
+    //    &__title {
+    //        font-size: 26px;
+    //        line-height: 31px;
+    //    }
+    //}
 }
 
 @media (max-width: 380px) {

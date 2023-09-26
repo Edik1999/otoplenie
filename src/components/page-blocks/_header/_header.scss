@@ -1,39 +1,111 @@
 .header {
-  @include container(100%, 0, 0);
+  $self: &;
+
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: calc(var(--gutter) * 2);
+  padding-bottom: calc(var(--gutter) * 2);
   backdrop-filter: blur(12px);
-  background: hsla(0, 0%, 0%, 0.15);
-  box-shadow: 0px 13px 11px 2px rgba(0, 0, 0, 0.2);
-
-  &__wrapper {
-    @include container(1440px, 0, 0);
-  }
+  background: var(--header-bg);
+  box-shadow: 0px 13px 11px 2px var(--shadow);
 
   &__links {
-    min-width: 820px;
-    gap: 45px;
+    gap: calc(var(--gutter) * 4);
+
+    @include tablet-landscape {
+      gap: calc(var(--gutter) * 2.5);
+    }
+
+    @include laptop {
+      display: none;
+      height: 0;
+      opacity: 0;
+      @include trs(0.9);
+    }
+  }
+
+  &.active {
+    @include laptop {
+      #{$self}__wrapper {
+        align-items: start;
+      }
+
+      #{$self}__links {
+        height: auto;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: calc(var(--gutter) * 3);
+        gap: calc(var(--gutter) * 1.5);
+      }
+    }
   }
 }
 
 .header-logo {
-  &__link {
-    margin-right: 50px;
-  }
-
   &__img {
     max-width: 190px;
-    height: 100%;
-    object-fit: contain;
-    @include trs(0.4);
+    @include trs;
 
     &:hover {
       transform: scale(1.03);
+    }
+
+    @include tablet-landscape {
+      max-width: 160px;
+    }
+  }
+}
+
+.header-burger {
+  height: 35px;
+  padding: 0;
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &::after, &::before {
+    content: '';
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--white);
+    @include trs;
+  }
+
+  &::after {
+    top: 3px;
+  }
+
+  &::before{
+    bottom: 3px;
+  }
+
+  &.active {
+    &::after {
+      transform: translateY(-5px) rotate(135deg)
+    }
+
+    &::before {
+      transform: translateY(3px) rotate(45deg)
+    }
+  }
+
+  @include laptop {
+    display: block;
+  }
+
+  @include small-phone {
+    &::after, &::before {
+      width: 35px;
     }
   }
 }
@@ -50,137 +122,33 @@
   &__contacts {
     font-size: 15px;
     line-height: 25px;
-    gap: 10px;
+    gap: var(--gutter);
   }
 }
 
 .header-links-item {
   text-decoration: none;
-  color: rgba(255,255,255, .75);
-  font-style: italic;
+  color: var(--text-color);
   @include trs;
 
   &:after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: -0;
+    left: 0;
     display: block;
     width: 0%;
     height: 2px;
-    background-color: rgb(255,255,255);
+    background-color: var(--white);
     border-radius: 2px;
-    @include trs(0.4);
+    @include trs;
   }
 
   &:hover {
-    color: rgba(255,255,255, 1);
+    color: var(--white);
 
     &:after {
       width: 100%;
     }
-  }
-}
-
-@media (max-width: 1340px) {
-  .header-logo {
-    &__link {
-      //height: 30px;
-      //margin-right: 35px;
-    }
-
-    &__img {
-      //width: 180px;
-    }
-  }
-
-  .header-links__item {
-    //margin-right: 45px;
-  }
-}
-
-@media (max-width: 1230px) {
-  .header {
-    //padding: 35px 70px 30px;
-  }
-}
-
-@media (max-width: 1120px) {
-  .header-logo {
-    &__link {
-      //height: 27px;
-      //margin-right: 30px;
-    }
-
-    &__img {
-      //width: 160px;
-    }
-  }
-
-  .header-links__item {
-    //margin-right: 30px;
-  }
-}
-
-@media (max-width: 1023px) {
-  .header {
-    //padding: 20px 30px 20px;
-    //flex-direction: column;
-
-    &__logo {
-      //margin-bottom: 25px;
-    }
-  }
-
-  .header-links-item {
-    //color: #FFFFFF;
-  }
-}
-
-@media (max-width: 680px) {
-  .header-links {
-    //width: 100%;
-    //justify-content: space-between;
-
-    &__item {
-      //margin-right: 0;
-
-      &:last-of-type {
-        //width: 25px;
-        //height: 22px;
-      }
-    }
-  }
-}
-
-@media (max-width: 500px) {
-  .header {
-    //padding: 18px;
-  }
-
-  .header-logo {
-    &__link {
-      //margin-right: 25px;
-    }
-
-    &__img {
-      //width: 135px;
-    }
-  }
-}
-
-
-@media (max-width: 420px) {
-  .header {
-    //padding: 15px;
-  }
-
-  .header__logo {
-    //margin-bottom: 20px;
-  }
-
-  .header-links__item {
-    //max-width: 22.5%;
-    //text-align: center;
   }
 }

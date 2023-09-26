@@ -1,6 +1,5 @@
 
 $(document).ready(function(){
-    console.log("ready");
     $('.banner').slick({
         centerMode: true,
         slidesToShow: 1,
