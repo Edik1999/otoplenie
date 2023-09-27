@@ -25,7 +25,7 @@
     gap: calc(var(--gutter) * 4);
 
     @include tablet-landscape {
-      gap: calc(var(--gutter) * 2.5);
+      gap: calc(var(--gutter) * 3);
     }
 
     @include only-mobi {
@@ -127,10 +127,9 @@
 .header-links{
   &__item {
     position: relative;
-    font-size: 16px;
 
-    &:last-of-type {
-      margin-right: 0;
+    @include only-mobi {
+      font-size: 16px;
     }
   }
 
