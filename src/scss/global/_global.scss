@@ -24,6 +24,10 @@
 
 	--gutter: 10px;
 	--section-padding: 80px;
+
+	@include only-mobi {
+		--gutter: 7px;
+	}
 }
 
 .flex {
@@ -131,7 +135,7 @@ img {
 		@include container(960px, 0, 0, 0);
 	}
 
-	@include laptop {
+	@include only-mobi {
 		@include container(840px, 0, 0, 0);
 	}
 

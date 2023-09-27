@@ -5,12 +5,21 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 100;
+  z-index: 10000;
   padding-top: calc(var(--gutter) * 2);
   padding-bottom: calc(var(--gutter) * 2);
   backdrop-filter: blur(12px);
-  background: var(--header-bg);
+  background: var(--dark-transparent);
   box-shadow: 0px 13px 11px 2px var(--shadow);
+  @include trs(0.6);
+
+  @include only-mobi {
+    height: 63px;
+  }
+
+  &__right-side {
+    position: relative;
+  }
 
   &__links {
     gap: calc(var(--gutter) * 4);
@@ -19,28 +28,29 @@
       gap: calc(var(--gutter) * 2.5);
     }
 
-    @include laptop {
-      display: none;
+    @include only-mobi {
+      position: absolute;
+      top: 60px;
+      right: 0;
       height: 0;
+      width: max-content;
+      pointer-events: none;
       opacity: 0;
-      @include trs(0.9);
+      flex-direction: column;
+      align-items: flex-end;
+      gap: calc(var(--gutter) * 1.5);
+      @include trs(0.6);
     }
   }
 
   &.active {
-    @include laptop {
-      #{$self}__wrapper {
-        align-items: start;
-      }
+    @include only-mobi {
+      height: 100%;
 
       #{$self}__links {
         height: auto;
+        pointer-events: auto;
         opacity: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        margin-top: calc(var(--gutter) * 3);
-        gap: calc(var(--gutter) * 1.5);
       }
     }
   }
@@ -57,6 +67,10 @@
 
     @include tablet-landscape {
       max-width: 160px;
+    }
+
+    @include phone {
+      max-width: 140px;
     }
   }
 }
@@ -99,7 +113,7 @@
     }
   }
 
-  @include laptop {
+  @include only-mobi {
     display: block;
   }
 
@@ -113,6 +127,7 @@
 .header-links{
   &__item {
     position: relative;
+    font-size: 16px;
 
     &:last-of-type {
       margin-right: 0;
@@ -120,9 +135,12 @@
   }
 
   &__contacts {
-    font-size: 15px;
-    line-height: 25px;
     gap: var(--gutter);
+
+    @include only-desktop {
+      font-size: 0.83rem;
+      line-height: 1.38rem;
+    }
   }
 }
 
@@ -150,5 +168,9 @@
     &:after {
       width: 100%;
     }
+  }
+
+  @include only-mobi {
+    color: var(--white);
   }
 }
