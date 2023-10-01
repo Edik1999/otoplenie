@@ -1,3 +1,26 @@
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyBqIRUTYfTZfsv3X0pH-flnqoAMv535Pkw",
+        authDomain: "website-for-boris.firebaseapp.com",
+        projectId: "website-for-boris",
+        storageBucket: "website-for-boris.appspot.com",
+        messagingSenderId: "1005807839957",
+        appId: "1:1005807839957:web:0dfed29f09f45f803d505c",
+        measurementId: "G-C4XYYNYS0B"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+</script>
 <script src="js/jquery-3.7.1.min.js"></script>
 <script src="js/main.min.js"></script>
 

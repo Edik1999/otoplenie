@@ -28,6 +28,10 @@
 	@include only-mobi {
 		--gutter: 7px;
 	}
+
+	@include big-phone {
+		--section-padding: 50px;
+	}
 }
 
 .flex {
@@ -108,6 +112,11 @@ section {
 	text-shadow: 10px 3px 25px var(--accent);
 	font-weight: 900;
 	margin: 0 auto calc(var(--gutter) * 5);
+
+	@include phone {
+		font-size: 2.5rem;
+		line-height: 2.8rem;
+	}
 }
 
 img {

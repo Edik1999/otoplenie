@@ -14,26 +14,6 @@
     }
   }
 
-  &__title {
-    font-size: 3rem;
-    line-height: 3.8rem;
-
-    @include only-mobi {
-      font-size: 2.5rem;
-      line-height: 3.4rem;
-    }
-  }
-
-  &__text {
-    font-size: 1.44rem;
-    line-height: 2.22rem;
-    margin-top: calc(var(--gutter) * 4);
-  }
-
-  &__link {
-    margin-top: calc(var(--gutter) * 4);
-  }
-
   .slick-arrow {
     z-index: 10;
   }
@@ -55,7 +35,7 @@
       opacity: 0.5;
     }
 
-    @include phone {
+    @include only-mobi {
       display: none!important;
     }
   }
@@ -95,9 +75,28 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    max-width: 43.3rem;
+    width: 43.3rem;
     transform: translate(-50%, -50%);
     padding: calc(var(--gutter) * 4.5) calc(var(--gutter) * 5.5);
+    border-radius: 30px;
+
+    @include only-mobi {
+      width: 70%;
+    }
+
+    @include tablet-portrait {
+      width: 75%;
+    }
+
+    @include phone {
+      padding: calc(var(--gutter) * 3.5) calc(var(--gutter) * 4.5);
+      width: calc(100% - (var(--gutter) * 6));
+    }
+
+    @include small-phone {
+      padding: calc(var(--gutter) * 3) calc(var(--gutter) * 3);
+      width: calc(100% - (var(--gutter) * 4));
+    }
   }
 
   &__picture {
@@ -108,19 +107,73 @@
     width: 100%;
     height: 100dvh;
     object-fit: cover;
-    filter: brightness(0.3);
+  }
+
+  &__title {
+    font-size: 3rem;
+    line-height: 3.8rem;
+
+    @include only-mobi {
+      font-size: 2.5rem;
+      line-height: 3.4rem;
+    }
+
+    @include phone {
+      font-size: 1.9rem;
+      line-height: 2.8rem;
+    }
+
+    @include small-phone {
+      font-size: 1.7rem;
+      line-height: 2.5rem;
+    }
+  }
+
+  &__text {
+    font-size: 1.44rem;
+    line-height: 2.22rem;
+    margin-top: calc(var(--gutter) * 4);
+
+    @include phone {
+      font-size: 1.17rem;
+      line-height: 1.7rem;
+      margin-top: calc(var(--gutter) * 3);
+    }
+  }
+
+  &__link {
+    max-width: 280px;
+    width: 100%;
+    min-height: 52px;
+    margin-left: auto;
+    border-radius: 52px;
+    margin-top: calc(var(--gutter) * 4);
+    border: 2px solid var(--accent);
+
+    @include phone {
+      max-width: 240px;
+      margin-right: auto;
+    }
+
+    @include small-phone {
+      max-width: 100%;
+    }
   }
 }
 
-.banner-title {
+.banner-slide-title {
   font-weight: 900;
   text-transform: uppercase;
 }
 
-.banner-text-link {
+.banner-slide-text-link {
   &:hover {
     text-decoration: none;
   }
+}
+
+.banner-slide-img {
+  filter: brightness(0.3);
 }
 
 .banner-slide-picture {
@@ -139,7 +192,6 @@
 }
 
 .banner-slide-wrapper {
-  border-radius: 30px;
   background: var(--dark-transparent);
   box-shadow: 0 0 30px 10px var(--shadow);
   backdrop-filter: blur(7px);
@@ -151,6 +203,10 @@
     gap: calc(var(--gutter) * 2);
     width: min(85%, 1000px);
     margin: 0 auto;
+
+    @include only-mobi {
+      width: 100%;
+    }
   }
 }
 
@@ -160,49 +216,69 @@
     width: 100%;
     max-width: calc( 50% - var(--gutter));
     height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
+
+    @include big-phone {
+      height: 300px;
+    }
+
+    @include phone {
+      max-width: 100%;
+    }
   }
 }
 
 .services-boxes-item {
   $self: &;
-  overflow: hidden;
-  border-radius: 10px;
 
-  &:hover {
-    #{$self}__link {
-      transform: scale(1.1);
-    }
-
-    #{$self}__wrapper {
-      opacity: 1;
-      padding: 0 calc(var(--gutter) * 5);
-      visibility: visible;
-    }
-  }
-
-  &__link{
-    display: block;
+  &__background {
     height: 100%;
-    background-position: center;
-    background-size: cover;
-    @include trs(0.8);
   }
 
-  &__wrapper {
+  &__link {
     position: absolute;
+    padding: 0 calc(var(--gutter) * 5);
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--dark-transparent);
-    opacity: 0;
-    visibility: hidden;
-    color: var(--white);
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: 800;
     font-size: 1.44rem;
-    @include trs;
+  }
+
+  @include only-desktop {
+    &:hover {
+      #{$self}__background {
+        transform: scale(1.1);
+      }
+
+      #{$self}__link {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.services-boxes-item-background {
+  background-position: center;
+  background-size: cover;
+  @include trs(0.8);
+}
+
+.services-boxes-item-link {
+  background-color: var(--dark-transparent);
+  opacity: 0;
+  visibility: hidden;
+  color: var(--white);
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 800;
+  @include trs(0.5);
+
+  @include only-mobi {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -214,13 +290,17 @@
       margin-top: 0;
     }
   }
+
+  &__list {
+    @include phone {
+      padding-left: calc(var(--gutter) * 3.5);
+    }
+  }
 }
 
-.about-us-list {
-  &__item {
-    &::marker {
-      color: var(--accent)
-    }
+.about-us-list-item {
+  &::marker {
+    color: var(--accent)
   }
 }
 
@@ -230,35 +310,101 @@
     border-radius: 30px;
     border: 2px solid var(--accent);
     overflow: hidden;
+
+    @include phone {
+      height: 480px;
+      flex-direction: column-reverse;
+    }
   }
 }
 
 .contacts-map {
+  background: var(--white);
+
   &__text {
     width: 25%;
     height: 100%;
     padding: calc(var(--gutter) * 3);
-    background: var(--white);
-    box-shadow: -7px 0px 20px -10px var(--dark-transparent) inset;
-    color: var(--bg);
+
+    @include tablet-portrait {
+      width: 30%;
+      padding: calc(var(--gutter) * 2.5);
+    }
+
+    @include big-phone {
+      width: 35%;
+    }
+
+    @include phone {
+      max-height: 205px;
+      width: 100%;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    @include small-phone {
+      max-height: unset;
+      height: auto;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   }
 
   .ymaps3x0--map-container {
     width: 75%;
+
+    @include tablet-portrait {
+      width: 70%;
+    }
+
+    @include big-phone {
+      width: 65%;
+    }
+
+    @include phone {
+      width: 100%;
+    }
   }
 }
 
 .contacts-map-text {
-  &__small {
+  box-shadow: -7px 0px 20px -10px var(--dark-transparent) inset;
+  color: var(--bg);
+
+  &__wrapper {
+    margin-top: calc(var(--gutter) * 3.5);
+
+    @include phone {
+      margin-top: 0;
+      height: 100%;
+      justify-content: space-evenly;
+    }
+
+    @include small-phone {
+      margin-top: calc(var(--gutter) * 3.5);
+      justify-content: space-between;
+    }
+  }
+
+  &__label {
     font-size: 0.72rem;
     line-height: 0.72rem;
     margin-top: calc(var(--gutter) * 1.5);
-    color: var(--gray);
   }
 
   &__link {
     display: block;
   }
+
+  &__br {
+    @include small-phone {
+      display: none;
+    }
+  }
+}
+
+.contacts-map-text-small {
+  color: var(--gray);
 }
 
 @import './media/_media.scss';
