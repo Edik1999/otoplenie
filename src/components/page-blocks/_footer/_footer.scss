@@ -3,13 +3,48 @@
   padding-bottom: calc(var(--gutter) * 5);
   background: var(--footer-bg);
 
+  @include small-phone {
+    padding-top: calc(var(--gutter) * 3.5);
+    padding-bottom: calc(var(--gutter) * 3.5);
+  }
+
+  &__body {
+    @include phone {
+      flex-direction: column;
+    }
+  }
+
   &__logo {
     max-width: 160px;
+
+    @include big-phone {
+      max-width: 140px;
+    }
+
+    @include phone {
+      margin-bottom: calc(var(--gutter) * 4);
+    }
+  }
+
+  &__right-side {
+    @include phone {
+      width: 100%;
+    }
   }
 
   &__links {
     padding-left: 0;
     margin-right: calc(var(--gutter) * 12);
+
+    @include big-phone {
+      max-width: 110px;
+      margin-right: calc(var(--gutter) * 6);
+    }
+
+    @include phone {
+      max-width: unset;
+      margin-right: 0;
+    }
   }
 
   &__contacts {
@@ -26,9 +61,27 @@
 }
 
 .footer-links-item {
+  &:nth-of-type(4) {
+    @include big-phone {
+      line-height: 1.2rem;
+    }
+
+    @include phone {
+      line-height: 2rem;
+    }
+  }
+
+  @include big-phone {
+    margin-top: var(--gutter);
+  }
+
   &--title {
     font-size: 1rem;
     color: var(--white);
+
+    @include big-phone {
+      margin-top: 0;
+    }
   }
 }
 
